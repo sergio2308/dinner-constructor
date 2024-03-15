@@ -1,7 +1,6 @@
 package ru.practicum.dinner;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -20,16 +19,20 @@ public class DinnerConstructor {
         }
     }
 
-    public HashMap<String, ArrayList<String>> createCombo(int numberOfCombos, ArrayList<String> dishesTypes) {
+    public void createCombo(int numberOfCombos, ArrayList<String> dishesTypes) {
         Random random = new Random();
-        HashMap<String, ArrayList<String>> combos = new HashMap<>();
-        ArrayList<String> dishes = new ArrayList<>();
-        for (String dish : dishesTypes) {
-            ArrayList<String> item = dishesByTypes.get(dish);
-            String d = item.get(random.nextInt() * item.size());
-            dishes.add(d);
-            combos.put();
+        ArrayList<String> combos;
+        ArrayList<String> dishesForCombo;
+
+        for (int i = 0; i < numberOfCombos; i++) {
+            combos = new ArrayList<>();
+            System.out.println("Комбо " + (i + 1));
+            for (String type : dishesTypes) {
+                dishesForCombo = dishesByTypes.get(type);
+                String dish = dishesForCombo.get(random.nextInt(dishesForCombo.size()));
+                combos.add(dish);
+            }
+            System.out.println(combos);
         }
-        return combos;
     }
 }
