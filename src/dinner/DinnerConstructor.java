@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class DinnerConstructor {
 
+    Random random = new Random();
     HashMap<String, ArrayList<String>> dishesByTypes = new HashMap<>();
     ArrayList<String> dishes;
 
@@ -20,7 +21,6 @@ public class DinnerConstructor {
     }
 
     public void createCombo(int numberOfCombos, ArrayList<String> dishesTypes) {
-        Random random = new Random();
         ArrayList<String> combos;
         ArrayList<String> dishesForCombo;
 

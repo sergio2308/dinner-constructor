@@ -24,6 +24,7 @@ public class Main {
                     generateDishCombo();
                     break;
                 case "3":
+                    System.out.println("Работа программы завершена.");
                     return;
             }
         }
@@ -48,9 +49,17 @@ public class Main {
 
     private static void generateDishCombo() {
         System.out.println("Начинаем конструировать обед...");
-
+        if (dc.dishesByTypes.isEmpty()) {
+            System.out.println("Невозможно составить комбо. Сначала наполните список блюд.");
+            System.out.println();
+            return;
+        }
         System.out.println("Введите количество наборов, которые нужно сгенерировать:");
         int numberOfCombos = scanner.nextInt();
+        if (numberOfCombos <= 0) {
+            System.out.println("Количество комбо должно быть больше 0.");
+            return;
+        }
         scanner.nextLine();
 
         System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter). Для завершения ввода введите пустую строку");
@@ -65,6 +74,6 @@ public class Main {
             }
             nextItem = scanner.nextLine();
         }
-       dc.createCombo(numberOfCombos, dishesTypes);
+        dc.createCombo(numberOfCombos, dishesTypes);
     }
 }
